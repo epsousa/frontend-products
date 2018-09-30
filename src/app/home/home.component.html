@@ -1,0 +1,82 @@
+<h2>Bem vindo ao Cadastro de produtos</h2>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">O que posso fazer no site?</div>
+      <div class="panel-body">
+        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur atque ad quis error laudantium voluptate quod.
+          Blanditiis omnis, optio repellendus magni reprehenderit eos labore pariatur nobis nisi modi, consequatur sint.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">Mais informações</div>
+      <div class="panel-body">
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit blanditiis, eius totam voluptatem cum praesentium tenetur,
+          fugit cupiditate necessitatibus aspernatur qui molestiae sit, quas eligendi voluptate reiciendis. A, dolorem id?</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">Links</div>
+      <div class="panel-body">
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit blanditiis, eius totam voluptatem cum praesentium tenetur,
+          fugit cupiditate necessitatibus aspernatur qui molestiae sit, quas eligendi voluptate reiciendis. A, dolorem id?</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-6">
+    <h2>
+      Cadastre um produto
+    </h2>
+    <form #heroForm="ngForm" action="">
+
+      <label for="nomeProduto">Nome do produto</label>
+      <input type="text" id="nomeProduto" type="text" [(ngModel)]="produto.nome" name="nome" class="form-control">
+      <label for="quantidade">Quantidade</label>
+      <input type="number" id="quantidade" [(ngModel)]="produto.qtde" name="qtde" class="form-control" type="number">
+      <label for="tipoProduto">Tipo do produto</label>
+      <input type="text" [(ngModel)]="produto.tipoProduto" name="tipoProduto" class="form-control">
+      <br>
+      <button (click)="enviar()" type="button" class="btn btn-primary btn-block">Enviar</button>
+
+    </form>
+  </div>
+  <div class="col-md-6">
+    <h2>Listagem de produtos</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Controle</td>
+          <td>Nome do produto</td>
+          <td>Quantidade</td>
+          <td>Tipo do produto</td>
+        </tr>
+      </thead>
+      <tbody *ngFor="let prod of produtos">
+        <tr>
+          <td>
+            <button class="btn btn-danger" (click)="delete(prod.id)">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+            <button class="btn btn-primary" (click)="editar(prod.id)">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </td>
+          <td>{{prod.nome}}</td>
+          <td>{{prod.qtde}}</td>
+          <td>{{prod.tipoProduto}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
